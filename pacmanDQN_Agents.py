@@ -83,6 +83,11 @@ class PacmanDQN(game.Agent):
         self.replay_mem = deque()
         self.last_scores = deque()
 
+        self.recorded_times = []
+
+
+    def getRecordedTimes(self):
+        return self.recorded_times
 
     def getMove(self, state):
         # Exploit / Explore
@@ -198,6 +203,8 @@ class PacmanDQN(game.Agent):
         self.terminal = True
         self.observation_step(state)
 
+        self.recorded_times.append(time.time()-self.s)
+        print(self.recorded_times)
         # Print stats
         log_file = open('./logs/'+str(self.general_record_time)+'-l-'+str(self.params['width'])+'-m-'+str(self.params['height'])+'-x-'+str(self.params['num_training'])+'.log','a')
         log_file.write("# %4d | steps: %5d | steps_t: %5d | t: %4f | r: %12f | e: %10f " %

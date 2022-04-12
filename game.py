@@ -408,6 +408,7 @@ class GameStateData:
             self.layout = prevState.layout
             self._eaten = prevState._eaten
             self.score = prevState.score
+            self.time = prevState.time
 
         self._foodEaten = None
         self._foodAdded = None
@@ -416,6 +417,7 @@ class GameStateData:
         self._lose = False
         self._win = False
         self.scoreChange = 0
+        self.time = 0
 
     def deepCopy(self):
         state = GameStateData(self)
@@ -447,6 +449,8 @@ class GameStateData:
         if not self.capsules == other.capsules:
             return False
         if not self.score == other.score:
+            return False
+        if not self.time == other.time:
             return False
         return True
 
@@ -526,6 +530,7 @@ class GameStateData:
         self.layout = layout
         self.score = 0
         self.scoreChange = 0
+        self.time = 0
 
         self.agentStates = []
         numGhosts = 0
