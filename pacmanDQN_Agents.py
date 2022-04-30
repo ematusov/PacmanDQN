@@ -211,6 +211,7 @@ class PacmanDQN(game.Agent):
         self.recorded_times.append(time.time()-self.s)
         self.number_of_steps.append(self.local_cnt)
         self.win_percentages.append(self.won)
+        print('#: ', self.numeps)
         print('recorded times: ', self.recorded_times)
         print('number of steps: ', self.number_of_steps)
         print('winning outcomes: ', self.win_percentages)
