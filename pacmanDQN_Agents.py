@@ -219,9 +219,9 @@ class PacmanDQN(game.Agent):
         log_file.write("# %4d | steps: %5d | steps_t: %5d | t: %4f | r: %12f | e: %10f " %
                          (self.numeps,self.local_cnt, self.cnt, time.time()-self.s, self.ep_rew, self.params['eps']))
         log_file.write("| Q: %10f | won: %r \n" % ((max(self.Q_global, default=float('nan')), self.won)))
-        log_file.write('recorded times: ', self.recorded_times)
-        log_file.write('number of steps: ', self.number_of_steps)
-        log_file.write('winning outcomes: ', self.win_percentages)
+        log_file.write('recorded times: ' + self.recorded_times)
+        log_file.write('number of steps: '+ self.number_of_steps)
+        log_file.write('winning outcomes: ' + self.win_percentages)
         sys.stdout.flush()
 
     def train(self):
